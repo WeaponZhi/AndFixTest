@@ -2,6 +2,7 @@ package com.weaponzhi.andfixtest.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -15,16 +16,24 @@ public class MainActivity extends AppCompatActivity {
     private static final String FILE_END = ".apatch";
     private String mPatchDir;
     private Button button;
+    private Button mButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         button = (Button) findViewById(R.id.btn_fix_bug);
+        mButton = (Button) findViewById(R.id.btn_test_bug);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 fixBug();
+            }
+        });
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                testBug();
             }
         });
         mPatchDir = getExternalCacheDir().getAbsolutePath() + "/apatch/";
@@ -37,12 +46,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        Toast.makeText(this, "打补丁之前", Toast.LENGTH_SHORT).show();
         super.onResume();
     }
 
     public void fixBug() {
         AndFixPatchManager.getInstance().addPatch(getPatchName());
+    }
+
+    public void testBug(){g
+        Toast.makeText(this,"Bug 修复之后",Toast.LENGTH_SHORT).show();
+        Log.e("test","补丁已修复!");
     }
 
     public String getPatchName() {
