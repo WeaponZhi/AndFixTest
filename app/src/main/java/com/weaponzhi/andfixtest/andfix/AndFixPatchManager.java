@@ -10,7 +10,7 @@ import com.weaponzhi.andfixtest.util.Utils;
  * AndFixPatchManager 管理 AndFix 所有的 API
  * <p>
  * author: 张冠之 <br>
- * time:   2017/8/5 22:53 <br>
+ * time:   2017/8/5 22:53 <br>1
  * GitHub: https://github.com/WeaponZhi
  * blog:   http://weaponzhi.online
  * CSDN:   http://blog.csdn.net/qq_34795285
